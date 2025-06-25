@@ -2,22 +2,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Welcome Bebe Noor♥️</title>
-  <script>
-    function checkPassword() {
-      var input = document.getElementById("password").value;
-      if (input === "01052023") {
-        window.location.href = "main.html";
-      } else {
-        alert("Incorrect anniversary date.");
-      }
-    }
-  </script>
+    <meta charset="UTF-8">
+    <title>Welcome Bebe Noor♥️</title>
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        #slide {
+            background-size: cover;
+            background-position: center;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            transition: background-image 1s ease-in-out;
+        }
+        .text-box {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.6em;
+        }
+        #end-screen {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+        }
+        button {
+            margin: 10px;
+            padding: 12px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 10px;
+            background: #ff66b2;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
 </head>
-<body style="text-align:center; font-family:sans-serif;">
-  <h2>Enter Our Anniversary Date to Continue</h2>
-  <input type="text" id="password" placeholder="DDMMYYYY">
-  <button onclick="checkPassword()">Enter</button>
+<body>
+    <audio autoplay loop>
+        <source src="music.mp3" type="audio/mp3">
+    </audio>
+    <div id="slide">
+        <div class="text-box" id="text"></div>
+    </div>
+    <div id="end-screen" style="display:none;">
+        <div class="text-box">Even if my future is only built on your memories… it will still be worth everything.<br>— FN27 lies in my heart forever. I love you♥️</div>
+        <button onclick="restart()">Restart</button>
+        <button onclick="alert('He will know you want another one 🥺')">Request another tribute</button>
+        <button onclick="window.close()">End it here</button>
+    </div>
+    <script>
+        const paragraphs = [
+            "From the moment we met, something inside me shifted. A feeling I couldn’t name, but never wanted to lose.",
+            "No matter where life takes us, you’ve already changed me forever. And for that, I’ll always be grateful.",
+            "Your laugh, your chaos, your calm — they all found a home in my heart, even when I didn’t deserve you.",
+            "I still replay every memory like it’s all I have left… because it is.",
+            "To my Pichoune — the baby in your smile, the warmth in your eyes — how do I live without seeing that light again?"
+        ];
+        const images = [
+            "img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "pichoune1.jpg"
+        ];
+        let index = 0;
+        const slide = document.getElementById('slide');
+        const text = document.getElementById('text');
+        const end = document.getElementById('end-screen');
+
+        function showSlide() {
+            if (index < paragraphs.length) {
+                slide.style.backgroundImage = `url('${images[index]}')`;
+                text.innerHTML = paragraphs[index];
+                index++;
+                setTimeout(showSlide, 7000); // 7 seconds between slides
+            } else {
+                slide.style.display = 'none';
+                end.style.display = 'flex';
+            }
+        }
+
+        function restart() {
+            index = 0;
+            slide.style.display = 'flex';
+            end.style.display = 'none';
+            showSlide();
+        }
+
+        window.onload = showSlide;
+    </script>
 </body>
 </html>
