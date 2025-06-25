@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome Bebe Noor♥️</title>
+  <script>
+    function checkPassword() {
+      var input = document.getElementById("password").value;
+      if (input === "01052023") {
+        window.location.href = "main.html";
+      } else {
+        alert("Incorrect anniversary date.");
+      }
+    }
+  </script>
+</head>
+<body style="text-align:center; font-family:sans-serif;">
+  <h2>Enter Our Anniversary Date to Continue</h2>
+  <input type="text" id="password" placeholder="DDMMYYYY">
+  <button onclick="checkPassword()">Enter</button>
+</body>
+</html>

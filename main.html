@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bebe Noor♥️ Tribute</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: sans-serif;
+      background: black;
+      color: white;
+      text-align: center;
+    }
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      padding: 2rem;
+    }
+    .slide.active {
+      opacity: 1;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 1rem;
+      border-radius: 10px;
+    }
+    #endOptions {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: white;
+      color: black;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+  <div class="slide active" style="background-image: url('img1.jpg');"><div class="overlay">Welcome, Bebe Noor♥️</div></div>
+  <div class="slide" style="background-image: url('img2.jpg');"><div class="overlay">No matter where we are, your smile lives in my soul.</div></div>
+  <div class="slide" style="background-image: url('img3.jpg');"><div class="overlay">Every beat of my heart whispers your name.</div></div>
+  <div class="slide" style="background-image: url('img4.jpg');"><div class="overlay">Your memories are a home I never want to leave.</div></div>
+  <div class="slide" style="background-image: url('holdinghands.jpg');"><div class="overlay">Even if my future is built only on your memories… it will still be worth everything. — FN27 lies in my heart forever. I love you♥️</div></div>
+
+  <div id="endOptions" class="slide" style="background:black; flex-direction: column;">
+    <button onclick="restart()">Restart Tribute</button>
+    <button onclick="alert('I’ll let Farhaan know ♥️')">Request Another Tribute</button>
+    <button onclick="window.close()">End</button>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+    const interval = 15000; // 15 seconds
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+          slide.classList.add('active');
+        }
+      });
+    }
+
+    function nextSlide() {
+      current++;
+      if (current < slides.length) {
+        showSlide(current);
+      } else {
+        document.getElementById("endOptions").style.display = "flex";
+      }
+    }
+
+    setInterval(() => {
+      if (current < slides.length) {
+        nextSlide();
+      }
+    }, interval);
+
+    function restart() {
+      current = 0;
+      showSlide(current);
+      document.getElementById("endOptions").style.display = "none";
+    }
+  </script>
+</body>
+</html>
