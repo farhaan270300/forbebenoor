@@ -1,0 +1,4 @@
+body, .container { margin: 0; padding: 0; height: 100vh; display: flex; align-items: center; justify-content: center; background: black; color: white; font-family: sans-serif; text-align: center; }
+.slide { display: none; font-size: 2rem; }
+#buttons { position: fixed; bottom: 20px; display: flex; gap: 10px; }
+button { font-size: 1rem; padding: 10px 20px; }
